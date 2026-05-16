@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://brg3rd8q8nmtx"]
 
 [ext_resource type="Script" uid="uid://cjfj3q51enftu" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dmd20wttgvpm4" path="res://player/states/idle_state.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://csqpm8syaaea5" path="res://player/states/move_state.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
 
@@ -14,3 +16,11 @@ mesh = SubResource("CapsuleMesh_onrkg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=366809216]
 shape = SubResource("CapsuleShape3D_i3pqv")
+
+[node name="StateMachine" type="LimboHSM" parent="." unique_id=1954299263]
+
+[node name="IdleState" type="LimboState" parent="StateMachine" unique_id=356285361]
+script = ExtResource("2_rkbax")
+
+[node name="MoveState" type="LimboState" parent="StateMachine" unique_id=2124380840]
+script = ExtResource("3_g1dw6")
