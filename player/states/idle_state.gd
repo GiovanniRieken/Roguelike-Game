@@ -8,8 +8,8 @@ func _setup() -> void:
 
 
 func _update(delta: float) -> void:
-	player.velocity.x = move_toward(player.velocity.x, 0, player.acceleration * delta)
-	player.velocity.z = move_toward(player.velocity.z, 0, player.acceleration * delta)
+	player.velocity.x = move_toward(player.velocity.x, 0, player.friction * delta)
+	player.velocity.z = move_toward(player.velocity.z, 0, player.friction * delta)
 	
 	if player.input_direction != Vector2.ZERO:
 		dispatch(EVENT_FINISHED)
